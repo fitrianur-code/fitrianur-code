@@ -24,7 +24,6 @@ jobs:
       - name: Generate languages.svg
         run: |
           curl -s "https://github-readme-stats.vercel.app/api/top-langs/?username=${{ github.repository_owner }}&locale=en&hide_title=false&layout=compact&card_width=320&langs_count=5&theme=dracula&hide_border=false" \
-          -H "Authorization: token ${{ secrets.PAT_TOKEN }}" \
           -o dist/languages.svg
 
       - name: push languages.svg to the output branch
@@ -33,4 +32,4 @@ jobs:
           target_branch: languages-output
           build_dir: dist
         env:
-          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
